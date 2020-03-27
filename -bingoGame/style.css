@@ -1,0 +1,179 @@
+:root{
+  --prim-clr: rgb(20, 78, 20);
+  --white-clr: #f4f4f4;
+  --drk-clr: #333;
+  --gldn-clr: goldenrod;
+  --chkd: rgb(110, 29, 29);
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: sans-serif
+}
+.info .info-cont{
+  margin: auto;
+  height: 60px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 40px 40px 200px;
+  grid-template-rows: 100% 20px;
+  /* z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; */
+  /* background-color: teal; */
+  text-align: center;
+  color: white;
+  width: max-content;
+  box-shadow: 3px 3px 10px var(--drk-clr);
+}
+.info .info-cont .undo{
+  display: block;
+  background-color: unset;
+  border: none;
+  outline: none;
+  background-color: var(--white-clr);
+  /* color: white; */
+  width: 100%;
+  height: 100%;
+  padding: 5px
+}
+#undo-icon{
+  width:100%;
+  height: 100%;
+  /* background: url(/img/undo-alt-solid.svg) no-repeat center center/cover; */
+  transition-property: transform;
+  transition-duration: 0.3s;
+}
+#undo-icon:hover{
+  transform: rotate(-45deg);
+}
+.info .info-cont .playing-num{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: teal;
+  width: 100%;
+  height: 100%;
+}
+.info .info-cont .word{
+  font-size: 22px;
+  font-weight: bold;
+  background-color: teal;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: var(--drk-clr) solid 1px;
+}
+.info .info-cont .word .ltr{
+  padding: 3px;
+}
+.info .info-cont .chkd-num{
+  grid-column: 1 / span 3;
+  /* height: max-content; */
+  /* width: min-content; */
+}
+
+.container{
+  width: 100vw;
+  height: 90vh;
+  background-color: var(--prim-clr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.container .content{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.checked{
+  background-color: var(--chkd) !important;
+  text-shadow: 0 0 0 var(--drk-clr) !important;
+  box-shadow: inset -2px -2px 10px var(--drk-clr);
+}
+body div div div div{
+  background-color: var(--prim-clr);
+}
+.container .content .boxes{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(5, 50px);
+  grid-template-rows: repeat(5, 50px);
+  background-color: unset;
+  border: 1px solid var(--white-clr) ;
+  gap: 2px;
+  padding: 3px;
+  box-shadow: 0px 3px 10px var(--drk-clr);
+}
+.container .content .boxes .box{
+  background-color: var(--gldn-clr);
+  width: 100%;
+  height: 100%;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 1px 1px 10px black;
+  transition-property: background-color text-shadow;
+  transition-duration: 0.15s;
+  transition-delay: 0.1s;
+}
+.container .content .numInput{
+  width: 100%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  box-shadow: 0px 3px 10px var(--drk-clr);
+}
+.container .content .numInput .inpt{
+  min-width: 80%;
+  min-height: 100%;
+  display: block;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+.container .content .numInput .sbmt-btn{
+  min-width: 20%;
+  display: block;
+  padding: 3px;
+  text-align: center;
+  font-weight: bold;
+  color: var(--white-clr);
+  background-color: var(--gldn-clr);
+  border: none;
+  outline: none;
+  box-shadow: -1px 0px 40px var(--drk-clr);
+}
+
+.ftr{
+  min-height: 50px;
+  text-align: center;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mrkd{
+  text-decoration: line-through ;
+  background-color: red;
+  display: inline-block;
+  transform: translateY(5px)
+}

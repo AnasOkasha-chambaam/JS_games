@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Bingo</title>
+</head>
+<body>
+  <div class="info">
+  <div class="info-cont">
+    <button class="undo"><img src="img/undo-alt-solid.svg" alt="undo" id="undo-icon" onerror="document.querySelector('.info .info-cont .undo').innerHTML = 'Undo'"></button>
+    <div class="playing-num">0</div>
+    <div class="word">
+      <span class="ltr" id="ltr-1">B</span>
+      <span class="ltr" id="ltr-2">I</span>
+      <span class="ltr" id="ltr-3">N</span>
+      <span class="ltr" id="ltr-4">G</span>
+      <span class="ltr" id="ltr-5">O</span>
+    </div>
+    <div class="chkd-num"><p>[1,2,3,4,6,7,8,9,10,11,12,13,14,15,16,17]</p></div>
+  </div>
+  </div>
+  <div class="container">
+    <div class="content">
+      <div class="boxes">
+        <div class="box" id="box-1">1</div>
+        <div class="box" id="box-2">2</div>
+        <div class="box" id="box-3">3</div>
+        <div class="box" id="box-4">4</div>
+        <div class="box" id="box-5">5</div>
+        <div class="box" id="box-6">6</div>
+        <div class="box" id="box-7">7</div>
+        <div class="box" id="box-8">8</div>
+        <div class="box" id="box-9">9</div>
+        <div class="box" id="box-10">10</div>
+        <div class="box" id="box-11">11</div>
+        <div class="box" id="box-12">12</div>
+        <div class="box" id="box-13">13</div>
+        <div class="box" id="box-14">14</div>
+        <div class="box" id="box-15">15</div>
+        <div class="box" id="box-16">16</div>
+        <div class="box" id="box-17">17</div>
+        <div class="box" id="box-18">18</div>
+        <div class="box" id="box-19">19</div>
+        <div class="box" id="box-20">20</div>
+        <div class="box" id="box-21">21</div>
+        <div class="box" id="box-22">22</div>
+        <div class="box" id="box-23">23</div>
+        <div class="box" id="box-24">24</div>
+        <div class="box" id="box-25">25</div>
+      </div>
+      <div class="numInput">
+        <input type="number" class="inpt">
+        <button type="submit" class="sbmt-btn">Hit it ></button>
+      </div>
+  </div>
+  </div>
+  <footer class="ftr"><h2>Designed and coded by Anas Okasha.</h2></footer>
+  <script src="app.js"></script>
+</body>
+</html>

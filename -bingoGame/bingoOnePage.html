@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <!-- <style>
+    :root{
+  --prim-clr: rgb(20, 78, 20);
+  --white-clr: #f4f4f4;
+  --drk-clr: #333;
+  --gldn-clr: goldenrod;
+  --chkd: rgb(110, 29, 29);
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: sans-serif
+}
+.info .info-cont{
+  margin: auto;
+  /* he */
+  max-height: 60px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 40px 40px 200px;
+  grid-template-rows: 100% 20px;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* background-color: teal; */
+  text-align: center;
+  color: white;
+  /* here */
+  max-width: max-content;
+  box-shadow: 3px 3px 10px var(--drk-clr);
+}
+.info .info-cont .undo{
+  display: block;
+  background-color: unset;
+  border: none;
+  outline: none;
+  background-color: var(--white-clr);
+  /* color: white; */
+  /* here */
+  max-width: 100%;
+  /* he */
+  max-height: 100%;
+  padding: 5px
+}
+#undo-icon{
+
+  max-width:100%;
+  /* he */
+  max-height: 100%;
+  /* background: url(/img/undo-alt-solid.svg) no-repeat center center/cover; */
+  transition-property: transform;
+  transition-duration: 0.3s;
+}
+#undo-icon:hover{
+  transform: rotate(-45deg);
+}
+.info .info-cont .playing-num{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: teal;
+  /* here */
+  max-width: 100%;
+  /* he */
+  max-height: 100%;
+}
+.info .info-cont .word{
+  font-size: 22px;
+  font-weight: bold;
+  background-color: teal;
+  /* here */
+  max-width: 100%;
+  /* he */
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: var(--drk-clr) solid 1px;
+}
+.info .info-cont .word .ltr{
+  padding: 3px;
+}
+.info .info-cont .chkd-num{
+  grid-column: 1 / span 3;
+  /* height: max-content; */
+  /* width: min-content; */
+}
+
+.container{
+  /* here */
+  min-width: 100vw;
+  /* he */
+  max-height: 90vh;
+  background-color: var(--prim-clr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.container .content{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.checked{
+  background-color: var(--chkd) !important;
+  text-shadow: 0 0 0 var(--drk-clr) !important;
+  box-shadow: inset -2px -2px 10px var(--drk-clr);
+}
+body div div div div{
+  background-color: var(--prim-clr);
+}
+.container .content .boxes{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(5, 50px);
+  grid-template-rows: repeat(5, 50px);
+  background-color: unset;
+  border: 1px solid var(--white-clr) ;
+  gap: 2px;
+  padding: 3px;
+  box-shadow: 0px 3px 10px var(--drk-clr);
+}
+.container .content .boxes .box{
+  background-color: var(--gldn-clr);
+  /* here */
+  max-width: 100%;
+  /* he */
+  max-height: 100%;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 1px 1px 10px black;
+  transition-property: background-color text-shadow;
+  transition-duration: 0.15s;
+  transition-delay: 0.1s;
+}
+.container .content .numInput{
+  /* here */
+  max-width: 100%;
+  /* he */
+  max-height: 30px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  box-shadow: 0px 3px 10px var(--drk-clr);
+}
+.container .content .numInput .inpt{
+  min-width: 80%;
+  min-height: 100%;
+  display: block;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+.container .content .numInput .sbmt-btn{
+  min-width: 20%;
+  display: block;
+  padding: 3px;
+  text-align: center;
+  font-weight: bold;
+  color: var(--white-clr);
+  background-color: var(--gldn-clr);
+  border: none;
+  outline: none;
+  box-shadow: -1px 0px 40px var(--drk-clr);
+}
+
+.ftr{
+  min-height: 50px;
+  text-align: center;
+  /* here */
+  max-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mrkd{
+  text-decoration: line-through ;
+  background-color: red;
+  display: inline-block;
+  transform: translateY(5px)
+}
+  </style> -->
+  <style>
+    :root{
+  --prim-clr: rgb(20, 78, 20);
+  --white-clr: #f4f4f4;
+  --drk-clr: #333;
+  --gldn-clr: goldenrod;
+  --chkd: rgb(110, 29, 29);
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: sans-serif
+}
+.info .info-cont{
+  margin: auto;
+  height: 60px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 40px 40px 200px;
+  grid-template-rows: 100% 20px;
+  /* z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; */
+  /* background-color: teal; */
+  text-align: center;
+  color: white;
+  width: max-content;
+  box-shadow: 3px 3px 10px var(--drk-clr);
+}
+.info .info-cont .undo{
+  display: block;
+  background-color: unset;
+  border: none;
+  outline: none;
+  background-color: var(--white-clr);
+  /* color: white; */
+  width: 100%;
+  height: 100%;
+  padding: 5px
+}
+#undo-icon{
+  width:100%;
+  height: 100%;
+  /* background: url(/img/undo-alt-solid.svg) no-repeat center center/cover; */
+  transition-property: transform;
+  transition-duration: 0.3s;
+}
+#undo-icon:hover{
+  transform: rotate(-45deg);
+}
+.info .info-cont .playing-num{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: teal;
+  width: 100%;
+  height: 100%;
+}
+.info .info-cont .word{
+  font-size: 22px;
+  font-weight: bold;
+  background-color: teal;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: var(--drk-clr) solid 1px;
+}
+.info .info-cont .word .ltr{
+  padding: 3px;
+}
+.info .info-cont .chkd-num{
+  grid-column: 1 / span 3;
+  /* height: max-content; */
+  /* width: min-content; */
+}
+
+.container{
+  width: 100vw;
+  height: 90vh;
+  background-color: var(--prim-clr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.container .content{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.checked{
+  background-color: var(--chkd) !important;
+  text-shadow: 0 0 0 var(--drk-clr) !important;
+  box-shadow: inset -2px -2px 10px var(--drk-clr);
+}
+body div div div div{
+  background-color: var(--prim-clr);
+}
+.container .content .boxes{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(5, 50px);
+  grid-template-rows: repeat(5, 50px);
+  background-color: unset;
+  border: 1px solid var(--white-clr) ;
+  gap: 2px;
+  padding: 3px;
+  box-shadow: 0px 3px 10px var(--drk-clr);
+}
+.container .content .boxes .box{
+  background-color: var(--gldn-clr);
+  width: 100%;
+  height: 100%;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 1px 1px 10px black;
+  transition-property: background-color text-shadow;
+  transition-duration: 0.15s;
+  transition-delay: 0.1s;
+}
+.container .content .numInput{
+  width: 100%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  box-shadow: 0px 3px 10px var(--drk-clr);
+}
+.container .content .numInput .inpt{
+  min-width: 80%;
+  min-height: 100%;
+  display: block;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+.container .content .numInput .sbmt-btn{
+  min-width: 20%;
+  display: block;
+  padding: 3px;
+  text-align: center;
+  font-weight: bold;
+  color: var(--white-clr);
+  background-color: var(--gldn-clr);
+  border: none;
+  outline: none;
+  box-shadow: -1px 0px 40px var(--drk-clr);
+}
+
+.ftr{
+  min-height: 50px;
+  text-align: center;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mrkd{
+  text-decoration: line-through ;
+  background-color: red;
+  display: inline-block;
+  transform: translateY(5px)
+}
+  </style>
+  <title>Bingo</title>
+</head>
+<body>
+  <div class="info">
+  <div class="info-cont">
+    <button class="undo"><img src="img/undo-alt-solid.svg" alt="undo" id="undo-icon" onerror="document.querySelector('.info .info-cont .undo').innerHTML = 'Undo'"></button>
+    <div class="playing-num">0</div>
+    <div class="word">
+      <span class="ltr" id="ltr-1">B</span>
+      <span class="ltr" id="ltr-2">I</span>
+      <span class="ltr" id="ltr-3">N</span>
+      <span class="ltr" id="ltr-4">G</span>
+      <span class="ltr" id="ltr-5">O</span>
+    </div>
+    <div class="chkd-num"><p>[1,2,3,4,6,7,8,9,10,11,12,13,14,15,16,17]</p></div>
+  </div>
+  </div>
+  <div class="container">
+    <div class="content">
+      <div class="boxes">
+        <div class="box" id="box-1">1</div>
+        <div class="box" id="box-2">2</div>
+        <div class="box" id="box-3">3</div>
+        <div class="box" id="box-4">4</div>
+        <div class="box" id="box-5">5</div>
+        <div class="box" id="box-6">6</div>
+        <div class="box" id="box-7">7</div>
+        <div class="box" id="box-8">8</div>
+        <div class="box" id="box-9">9</div>
+        <div class="box" id="box-10">10</div>
+        <div class="box" id="box-11">11</div>
+        <div class="box" id="box-12">12</div>
+        <div class="box" id="box-13">13</div>
+        <div class="box" id="box-14">14</div>
+        <div class="box" id="box-15">15</div>
+        <div class="box" id="box-16">16</div>
+        <div class="box" id="box-17">17</div>
+        <div class="box" id="box-18">18</div>
+        <div class="box" id="box-19">19</div>
+        <div class="box" id="box-20">20</div>
+        <div class="box" id="box-21">21</div>
+        <div class="box" id="box-22">22</div>
+        <div class="box" id="box-23">23</div>
+        <div class="box" id="box-24">24</div>
+        <div class="box" id="box-25">25</div>
+      </div>
+      <div class="numInput">
+        <input type="number" class="inpt">
+        <button type="submit" class="sbmt-btn">Hit it ></button>
+      </div>
+  </div>
+  </div>
+  <footer class="ftr"><h2>Designed and coded by Anas Okasha.</h2></footer>
+  <!-- <script src="app.js"></script> -->
+  <script>
+    const sbmtBtn = document.querySelector('.container .content .numInput .sbmt-btn'),
+      inpt = document.querySelector('.container .content .numInput .inpt'),
+      boxeElm = Array.from(document.querySelectorAll('.container .content .boxes .box')),
+      playingNum = document.querySelector('.info .info-cont .playing-num '),
+      chosenNum = document.querySelector('.info .info-cont .chkd-num'),
+      undoBtn = document.querySelector('.info .info-cont .undo'),
+      theWord=Array.from(document.querySelector('.word').children);
+let ourArr = [],
+    chosen = [],
+    rotate= 360,
+    undoThis,
+    binRow=[],
+    binCol=[],
+    bingo=[],
+    k=0;
+class theGame{
+  static undo(){
+    if(chosen === []){
+      console.log(false)
+    }else{
+      undoThis = chosen.pop();
+      boxeElm.forEach((box)=>{
+        if(parseInt(box.innerHTML) === undoThis){
+          box.classList.remove('checked')
+          playingNum.innerHTML = (parseInt(playingNum.innerHTML) - 1)
+        }
+      })
+      UI.showChosen()      
+    }
+  }
+  static gameStart(){
+    let numArr = [],
+          i;
+    for(i = 1; i <= 25; i++){
+      numArr.push(i);
+    }
+    return numArr
+  }
+  static shffl(ar, cb){
+    let i, j, x;
+    for(i = (ar.length -1); i >= 0; i--){
+      j = Math.floor(Math.random() * (i + 1));
+      // console.log(i)
+      // console.log(j)
+      x = ar[i];
+      ar[i] = ar[j];
+      ar[j] = x;
+    }
+    cb(ar)
+  }
+  static chck(){
+    let val = inpt.value;
+    if(Math.floor(val) < 26 && Math.floor(val) > 0){
+      // console.log(Math.floor(val))
+      return true;
+    } else {
+      return false;
+    }
+  }
+  static clrBin(){
+    binRow=[]
+    // console.log(binRow)
+    // console.log(i)
+    binCol=[]
+    // console.log(binCol)
+    // console.log(i)
+    bingo=[]
+    // console.log(bingo)
+    k=0
+  }
+  static testRows(){
+    let i = 1,n = 0,x;
+    for(i; i < 22; (i=i+5)){
+      x=i;
+      // console.log(i)
+      n=0;
+      for(x;x < i+5;x++){
+        if(document.getElementById(`box-${x}`).classList.contains('checked')){
+          n=n+1;
+        }
+        // console.log(x)
+      }
+      binRow.push(n)
+      // console.log(binRow)
+    }
+    // console.log(binRow)
+  }
+  static testCol(){
+    let i = 1,n = 0,x;
+    for(i; i < 6; (i=i+1)){
+      x=i;
+      // console.log(i)
+      n=0;
+      for(x;x < 26;x=x+5){
+        if(document.getElementById(`box-${x}`).classList.contains('checked')){
+          // console.log(document.getElementById(`box-${x}`))
+          n=n+1;
+        }
+        // console.log(x)
+      }
+      binCol.push(n)
+      // console.log(bingo)
+    }
+    // console.log(binCol)
+  }
+  static bingo(){
+    bingo= binCol.concat(binRow);
+    // console.log(bingo);
+    bingo.forEach((one)=>{
+      if(one===5){
+        k=k+1;
+        // console.log(k)
+        theWord[k-1].classList.add('mrkd')
+      }
+      
+    })
+
+
+  }
+}
+/*
+function gameStart(){
+  let numArr = [],
+        i;
+  for(i = 1; i <= 25; i++){
+    numArr.push(i);
+  }
+  return numArr
+}
+
+function shffl(ar, cb){
+  let i, j, x;
+  for(i = (ar.length -1); i >= 0; i--){
+    j = Math.floor(Math.random() * (i + 1));
+    // console.log(i)
+    // console.log(j)
+    x = ar[i];
+    ar[i] = ar[j];
+    ar[j] = x;
+  }
+  cb(ar)
+}
+// console.log(gameStart())
+*/
+class LS{
+  static saveToLS(some){
+    // console.log(some)
+    localStorage.setItem('numbers', JSON.stringify(some))
+    ourArr = some;
+  }
+}
+class something {
+  static chckIn(trgt){
+    
+  }
+}
+class UI {
+  static nonChosen(){
+    if(chosen.includes(Math.floor(inpt.value))){
+      return true;
+    } else {
+      return false;
+    }
+  }
+  static clrInpt(){
+    inpt.value = '';
+  }
+  static showChosen(){
+    chosenNum.innerHTML = JSON.stringify(chosen)
+  }
+  static chckVal(){
+    boxeElm.forEach((box)=>{
+      if(parseInt(box.innerHTML) === Math.floor(inpt.value)){
+        box.classList.add('checked')
+        playingNum.innerHTML = (parseInt(playingNum.innerHTML) + 1)
+      }
+    })
+    chosen.push(Math.floor(inpt.value))
+    UI.showChosen();
+    theGame.testCol();
+    theGame.testRows();
+    theGame.bingo();
+    // console.log(k)
+    theGame.clrBin();
+    UI.clrInpt();
+    UI.disable();
+  }
+  static showInUI(){
+    theGame.shffl(theGame.gameStart(), LS.saveToLS)
+    
+    boxeElm.forEach((box, ind) => {
+      box.innerHTML = ourArr[ind]
+    })
+  }
+  static disable(){
+    let huh=theWord.every((ltr)=>{
+      return ltr.classList.contains('mrkd')
+    });
+    if(huh){
+      inpt.disabled= true;
+      sbmtBtn.innerHTML = 'Replay';
+    }
+  }
+}      
+UI.showInUI()
+UI.showChosen()
+
+sbmtBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  if(e.target.innerHTML === 'Replay'){
+    if(window.confirm('Replay the game!')){
+      location.reload()
+    }
+  }
+  if(theGame.chck() && !UI.nonChosen()){
+    // console.log('hey')
+    UI.chckVal()
+    inpt.focus()
+  }else{
+    console.log('noo')
+    console.log(UI.nonChosen())
+    inpt.focus()
+  }
+})
+
+undoBtn.addEventListener('click', (e) => {
+  e.preventDefault()
+      rotate = rotate + 360;
+  e.target.style.transform = `rotate(-${rotate}deg)`;
+  theGame.undo()
+})
+
+
+
+
+
+
+
+
+
+
+
+/*
+function testRows(){
+  let i = 1,n = 0,x;
+  for(i; i < 22; (i=i+5)){
+    x=i;
+    // console.log(i)
+    n=0;
+    for(x;x < i+5;x++){
+      if(document.getElementById(`box-${x}`).classList.contains('box')){
+        n=n+1;
+      }
+      // console.log(x)
+    }
+    bingo.push(n)
+    // console.log(bingo)
+  }
+  console.log(bingo)
+  bingo=[]
+  console.log(bingo)
+  // console.log(i)
+}
+function testCol(){
+  let i = 1,n = 0,x;
+  for(i; i < 6; (i=i+1)){
+    x=i;
+    // console.log(i)
+    n=0;
+    for(x;x < 26;x=x+5){
+      if(document.getElementById(`box-${x}`).classList.contains('box')){
+        console.log(document.getElementById(`box-${x}`))
+        n=n+1;
+      }
+      // console.log(x)
+    }
+    bingo.push(n)
+    // console.log(bingo)
+  }
+  console.log(bingo)
+  bingo=[]
+  console.log(bingo)
+  // console.log(i)
+}
+*/
+theGame.testRows()
+theGame.testCol()
+  </script>
+</body>
+</html>
